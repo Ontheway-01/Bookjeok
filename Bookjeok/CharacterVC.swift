@@ -31,6 +31,7 @@ class CharacterVC:UIViewController{
     }
     
     @IBAction func clickBtnSelectSection(_ sender: UIButton) {
+        
     }
     
     @IBAction func clickBtnSelectSectionSmall(_ sender: UIButton){

@@ -8,8 +8,6 @@
 import UIKit
 
 class HomeVC: UIViewController {
-
-    
     @IBOutlet weak var btnCapture: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var btnSee: UIButton!
@@ -17,10 +15,13 @@ class HomeVC: UIViewController {
     @IBOutlet weak var listView: UIView!
     @IBOutlet weak var stackView: UIView!
     
+    var bookNum: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
     @IBAction func clickBtnCapture(_ sender: Any) {
         
     }
@@ -38,8 +39,6 @@ class HomeVC: UIViewController {
             listView.alpha = 1.0
         }
     }
-    
-
 }
 
 extension HomeVC: UISearchBarDelegate{
