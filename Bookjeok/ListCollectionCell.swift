@@ -8,6 +8,9 @@
 import Foundation
 import UIKit
 class ListCollectionCell: UICollectionViewCell{
+    
+    @IBOutlet weak var imgViewBook: UIImageView!
     @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var lblAuthor: UILabel!
     
 }

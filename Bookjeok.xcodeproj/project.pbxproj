@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50019D0A2850B8AE00DBB890 /* UnreadBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50019D092850B8AE00DBB890 /* UnreadBookCell.xib */; };
+		50019D0C2850B94600DBB890 /* UnreadBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50019D0B2850B94600DBB890 /* UnreadBookCell.swift */; };
+		5016B0F6286C2B2F00C82351 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5016B0F5286C2B2F00C82351 /* CharacterCell.swift */; };
 		501F8BAE2844601800870C29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501F8BAD2844601800870C29 /* AppDelegate.swift */; };
 		501F8BB02844601800870C29 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501F8BAF2844601800870C29 /* SceneDelegate.swift */; };
 		501F8BB52844601800870C29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 501F8BB32844601800870C29 /* Main.storyboard */; };
@@ -17,16 +20,40 @@
 		501F8BC8284461E000870C29 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501F8BC3284461E000870C29 /* ProfileVC.swift */; };
 		501F8BC9284461E000870C29 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501F8BC4284461E000870C29 /* HomeVC.swift */; };
 		501F8BCA284461E000870C29 /* RecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501F8BC5284461E000870C29 /* RecordVC.swift */; };
-		501F8BCC284461E800870C29 /* 책.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 501F8BCB284461E800870C29 /* 책.jpeg */; };
 		50221B582847482B00C4D438 /* ListCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50221B572847482B00C4D438 /* ListCollectionCell.swift */; };
 		50221B5A284749D300C4D438 /* ListCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50221B59284749D300C4D438 /* ListCollectionVC.swift */; };
-		50B5EE472848C8930094CC69 /* ViewAllVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B5EE462848C8930094CC69 /* ViewAllVC.swift */; };
-		50B5EE492848C8BB0094CC69 /* ViewReadBooksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B5EE482848C8BB0094CC69 /* ViewReadBooksVC.swift */; };
-		50B5EE4B2848C8E30094CC69 /* ViewReadingBooksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B5EE4A2848C8E30094CC69 /* ViewReadingBooksVC.swift */; };
-		50B5EE4D2848C91C0094CC69 /* ViewWannaReadBooksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B5EE4C2848C91C0094CC69 /* ViewWannaReadBooksVC.swift */; };
+		5028D2D328630926005A76A4 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5028D2D228630926005A76A4 /* BookModel.swift */; };
+		5028D2D528631577005A76A4 /* ReadingBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5028D2D428631577005A76A4 /* ReadingBookCell.swift */; };
+		5028D2D728631F51005A76A4 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5028D2D628631F51005A76A4 /* ProfileCell.swift */; };
+		5028D2D9286320CA005A76A4 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5028D2D8286320CA005A76A4 /* ProfileModel.swift */; };
+		5028D2DC28632582005A76A4 /* NetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5028D2DB28632582005A76A4 /* NetManager.swift */; };
+		5028D2DE28633007005A76A4 /* ModelSearchBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5028D2DD28633007005A76A4 /* ModelSearchBook.swift */; };
+		5030F5492899FEBB00F1899D /* FontTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5030F5482899FEBB00F1899D /* FontTableCell.swift */; };
+		5030F54D289A2A3500F1899D /* ReadingRecordPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5030F54C289A2A3500F1899D /* ReadingRecordPopUpVC.swift */; };
+		5030F54F289A325100F1899D /* ReadingRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5030F54E289A325100F1899D /* ReadingRecordCell.swift */; };
+		5030F551289A3E8E00F1899D /* LookNotionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5030F550289A3E8E00F1899D /* LookNotionVC.swift */; };
+		5030F555289A430700F1899D /* DevIntroductionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5030F554289A430700F1899D /* DevIntroductionVC.swift */; };
+		503AA493284FB09300DB180D /* ReadBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503AA492284FB09300DB180D /* ReadBookCell.swift */; };
+		509D2851287DEDB600FB6B2F /* WannaReadBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D2850287DEDB600FB6B2F /* WannaReadBookCell.swift */; };
+		509D2853287ED70C00FB6B2F /* ApiConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D2852287ED70C00FB6B2F /* ApiConst.swift */; };
+		509D2855287EDEC800FB6B2F /* LibraryBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D2854287EDEC800FB6B2F /* LibraryBaseCell.swift */; };
+		509D2857287EE4E900FB6B2F /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D2856287EE4E900FB6B2F /* APIManager.swift */; };
+		50E017C22890483F0044AEFF /* ProfileEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E017C12890483F0044AEFF /* ProfileEditVC.swift */; };
+		50E017C428904C070044AEFF /* ProfileEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E017C328904C070044AEFF /* ProfileEditCell.swift */; };
+		50E017C628905E030044AEFF /* ProfileImgPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E017C528905E030044AEFF /* ProfileImgPopUpVC.swift */; };
+		50E017C8289063CE0044AEFF /* NicknamePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E017C7289063CE0044AEFF /* NicknamePopUpVC.swift */; };
+		50E017CA28906B0A0044AEFF /* DeleteAccountPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E017C928906B0A0044AEFF /* DeleteAccountPopUpVC.swift */; };
+		50E017CC28906CD30044AEFF /* LogoutPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E017CB28906CD20044AEFF /* LogoutPopUpVC.swift */; };
+		50E017CE2890C4710044AEFF /* ColorFontSetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E017CD2890C4710044AEFF /* ColorFontSetVC.swift */; };
+		50E017D02890C52B0044AEFF /* ColorTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E017CF2890C52B0044AEFF /* ColorTableCell.swift */; };
+		9B7A9FF63DF949F8AFD8F09E /* Pods_Bookjeok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9D175A6F873AA8E0BEE894 /* Pods_Bookjeok.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		14D248F4105B092C91604013 /* Pods-Bookjeok.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookjeok.debug.xcconfig"; path = "Target Support Files/Pods-Bookjeok/Pods-Bookjeok.debug.xcconfig"; sourceTree = "<group>"; };
+		50019D092850B8AE00DBB890 /* UnreadBookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UnreadBookCell.xib; sourceTree = "<group>"; };
+		50019D0B2850B94600DBB890 /* UnreadBookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnreadBookCell.swift; sourceTree = "<group>"; };
+		5016B0F5286C2B2F00C82351 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 		501F8BAA2844601800870C29 /* Bookjeok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookjeok.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		501F8BAD2844601800870C29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		501F8BAF2844601800870C29 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,13 +66,34 @@
 		501F8BC3284461E000870C29 /* ProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		501F8BC4284461E000870C29 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		501F8BC5284461E000870C29 /* RecordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordVC.swift; sourceTree = "<group>"; };
-		501F8BCB284461E800870C29 /* 책.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "책.jpeg"; sourceTree = "<group>"; };
 		50221B572847482B00C4D438 /* ListCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionCell.swift; sourceTree = "<group>"; };
 		50221B59284749D300C4D438 /* ListCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionVC.swift; sourceTree = "<group>"; };
-		50B5EE462848C8930094CC69 /* ViewAllVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAllVC.swift; sourceTree = "<group>"; };
-		50B5EE482848C8BB0094CC69 /* ViewReadBooksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewReadBooksVC.swift; sourceTree = "<group>"; };
-		50B5EE4A2848C8E30094CC69 /* ViewReadingBooksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewReadingBooksVC.swift; sourceTree = "<group>"; };
-		50B5EE4C2848C91C0094CC69 /* ViewWannaReadBooksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWannaReadBooksVC.swift; sourceTree = "<group>"; };
+		5028D2D228630926005A76A4 /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
+		5028D2D428631577005A76A4 /* ReadingBookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingBookCell.swift; sourceTree = "<group>"; };
+		5028D2D628631F51005A76A4 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		5028D2D8286320CA005A76A4 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		5028D2DB28632582005A76A4 /* NetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetManager.swift; sourceTree = "<group>"; };
+		5028D2DD28633007005A76A4 /* ModelSearchBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSearchBook.swift; sourceTree = "<group>"; };
+		5030F5482899FEBB00F1899D /* FontTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTableCell.swift; sourceTree = "<group>"; };
+		5030F54C289A2A3500F1899D /* ReadingRecordPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingRecordPopUpVC.swift; sourceTree = "<group>"; };
+		5030F54E289A325100F1899D /* ReadingRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingRecordCell.swift; sourceTree = "<group>"; };
+		5030F550289A3E8E00F1899D /* LookNotionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookNotionVC.swift; sourceTree = "<group>"; };
+		5030F554289A430700F1899D /* DevIntroductionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevIntroductionVC.swift; sourceTree = "<group>"; };
+		503AA492284FB09300DB180D /* ReadBookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadBookCell.swift; sourceTree = "<group>"; };
+		509D2850287DEDB600FB6B2F /* WannaReadBookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WannaReadBookCell.swift; sourceTree = "<group>"; };
+		509D2852287ED70C00FB6B2F /* ApiConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConst.swift; sourceTree = "<group>"; };
+		509D2854287EDEC800FB6B2F /* LibraryBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryBaseCell.swift; sourceTree = "<group>"; };
+		509D2856287EE4E900FB6B2F /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		50E017C12890483F0044AEFF /* ProfileEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditVC.swift; sourceTree = "<group>"; };
+		50E017C328904C070044AEFF /* ProfileEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditCell.swift; sourceTree = "<group>"; };
+		50E017C528905E030044AEFF /* ProfileImgPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImgPopUpVC.swift; sourceTree = "<group>"; };
+		50E017C7289063CE0044AEFF /* NicknamePopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknamePopUpVC.swift; sourceTree = "<group>"; };
+		50E017C928906B0A0044AEFF /* DeleteAccountPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountPopUpVC.swift; sourceTree = "<group>"; };
+		50E017CB28906CD20044AEFF /* LogoutPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutPopUpVC.swift; sourceTree = "<group>"; };
+		50E017CD2890C4710044AEFF /* ColorFontSetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFontSetVC.swift; sourceTree = "<group>"; };
+		50E017CF2890C52B0044AEFF /* ColorTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableCell.swift; sourceTree = "<group>"; };
+		9E9D175A6F873AA8E0BEE894 /* Pods_Bookjeok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bookjeok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB8CEA0005D80E01EDD14119 /* Pods-Bookjeok.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookjeok.release.xcconfig"; path = "Target Support Files/Pods-Bookjeok/Pods-Bookjeok.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B7A9FF63DF949F8AFD8F09E /* Pods_Bookjeok.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +113,8 @@
 			children = (
 				501F8BAC2844601800870C29 /* Bookjeok */,
 				501F8BAB2844601800870C29 /* Products */,
+				5D9F61A576763D3D921C3D15 /* Pods */,
+				E0742CD8D8A1CAE6AE917336 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,26 +129,73 @@
 		501F8BAC2844601800870C29 /* Bookjeok */ = {
 			isa = PBXGroup;
 			children = (
-				501F8BCB284461E800870C29 /* 책.jpeg */,
 				501F8BAD2844601800870C29 /* AppDelegate.swift */,
 				501F8BAF2844601800870C29 /* SceneDelegate.swift */,
+				5028D2D228630926005A76A4 /* BookModel.swift */,
 				501F8BC4284461E000870C29 /* HomeVC.swift */,
 				50221B59284749D300C4D438 /* ListCollectionVC.swift */,
 				50221B572847482B00C4D438 /* ListCollectionCell.swift */,
 				501F8BC2284461DF00870C29 /* LibraryVC.swift */,
-				50B5EE462848C8930094CC69 /* ViewAllVC.swift */,
-				50B5EE482848C8BB0094CC69 /* ViewReadBooksVC.swift */,
-				50B5EE4A2848C8E30094CC69 /* ViewReadingBooksVC.swift */,
-				50B5EE4C2848C91C0094CC69 /* ViewWannaReadBooksVC.swift */,
+				509D2854287EDEC800FB6B2F /* LibraryBaseCell.swift */,
+				503AA492284FB09300DB180D /* ReadBookCell.swift */,
+				5028D2D428631577005A76A4 /* ReadingBookCell.swift */,
+				509D2850287DEDB600FB6B2F /* WannaReadBookCell.swift */,
 				501F8BC1284461DF00870C29 /* CharacterVC.swift */,
+				5016B0F5286C2B2F00C82351 /* CharacterCell.swift */,
 				501F8BC5284461E000870C29 /* RecordVC.swift */,
 				501F8BC3284461E000870C29 /* ProfileVC.swift */,
+				5028D2D628631F51005A76A4 /* ProfileCell.swift */,
+				5028D2D8286320CA005A76A4 /* ProfileModel.swift */,
+				50E017C12890483F0044AEFF /* ProfileEditVC.swift */,
+				50E017C328904C070044AEFF /* ProfileEditCell.swift */,
+				50E017C528905E030044AEFF /* ProfileImgPopUpVC.swift */,
+				50E017C7289063CE0044AEFF /* NicknamePopUpVC.swift */,
+				50E017C928906B0A0044AEFF /* DeleteAccountPopUpVC.swift */,
+				5030F54C289A2A3500F1899D /* ReadingRecordPopUpVC.swift */,
+				5030F54E289A325100F1899D /* ReadingRecordCell.swift */,
+				50E017CD2890C4710044AEFF /* ColorFontSetVC.swift */,
+				50E017CF2890C52B0044AEFF /* ColorTableCell.swift */,
+				5030F5482899FEBB00F1899D /* FontTableCell.swift */,
+				50E017CB28906CD20044AEFF /* LogoutPopUpVC.swift */,
+				5030F550289A3E8E00F1899D /* LookNotionVC.swift */,
+				5030F554289A430700F1899D /* DevIntroductionVC.swift */,
 				501F8BB32844601800870C29 /* Main.storyboard */,
 				501F8BB62844601800870C29 /* Assets.xcassets */,
 				501F8BB82844601800870C29 /* LaunchScreen.storyboard */,
 				501F8BBB2844601800870C29 /* Info.plist */,
+				50019D092850B8AE00DBB890 /* UnreadBookCell.xib */,
+				50019D0B2850B94600DBB890 /* UnreadBookCell.swift */,
+				5028D2DA2863251A005A76A4 /* Network */,
+				509D2852287ED70C00FB6B2F /* ApiConst.swift */,
+				509D2856287EE4E900FB6B2F /* APIManager.swift */,
 			);
 			path = Bookjeok;
+			sourceTree = "<group>";
+		};
+		5028D2DA2863251A005A76A4 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				5028D2DB28632582005A76A4 /* NetManager.swift */,
+				5028D2DD28633007005A76A4 /* ModelSearchBook.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		5D9F61A576763D3D921C3D15 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				14D248F4105B092C91604013 /* Pods-Bookjeok.debug.xcconfig */,
+				AB8CEA0005D80E01EDD14119 /* Pods-Bookjeok.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E0742CD8D8A1CAE6AE917336 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9E9D175A6F873AA8E0BEE894 /* Pods_Bookjeok.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -107,9 +205,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 501F8BBE2844601800870C29 /* Build configuration list for PBXNativeTarget "Bookjeok" */;
 			buildPhases = (
+				D0FD60E231C89FE905627A03 /* [CP] Check Pods Manifest.lock */,
 				501F8BA62844601800870C29 /* Sources */,
 				501F8BA72844601800870C29 /* Frameworks */,
 				501F8BA82844601800870C29 /* Resources */,
+				BC39FB4FA8F9C8836CDD0C3F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -158,33 +258,97 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				501F8BCC284461E800870C29 /* 책.jpeg in Resources */,
 				501F8BBA2844601800870C29 /* LaunchScreen.storyboard in Resources */,
 				501F8BB72844601800870C29 /* Assets.xcassets in Resources */,
+				50019D0A2850B8AE00DBB890 /* UnreadBookCell.xib in Resources */,
 				501F8BB52844601800870C29 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		BC39FB4FA8F9C8836CDD0C3F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bookjeok/Pods-Bookjeok-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bookjeok/Pods-Bookjeok-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bookjeok/Pods-Bookjeok-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0FD60E231C89FE905627A03 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bookjeok-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		501F8BA62844601800870C29 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50B5EE4D2848C91C0094CC69 /* ViewWannaReadBooksVC.swift in Sources */,
-				50B5EE4B2848C8E30094CC69 /* ViewReadingBooksVC.swift in Sources */,
+				5028D2D9286320CA005A76A4 /* ProfileModel.swift in Sources */,
+				50E017CE2890C4710044AEFF /* ColorFontSetVC.swift in Sources */,
+				503AA493284FB09300DB180D /* ReadBookCell.swift in Sources */,
+				50E017CA28906B0A0044AEFF /* DeleteAccountPopUpVC.swift in Sources */,
 				501F8BC8284461E000870C29 /* ProfileVC.swift in Sources */,
+				5016B0F6286C2B2F00C82351 /* CharacterCell.swift in Sources */,
+				509D2857287EE4E900FB6B2F /* APIManager.swift in Sources */,
+				509D2851287DEDB600FB6B2F /* WannaReadBookCell.swift in Sources */,
 				50221B582847482B00C4D438 /* ListCollectionCell.swift in Sources */,
+				50E017C428904C070044AEFF /* ProfileEditCell.swift in Sources */,
+				5028D2DE28633007005A76A4 /* ModelSearchBook.swift in Sources */,
 				501F8BCA284461E000870C29 /* RecordVC.swift in Sources */,
 				501F8BC9284461E000870C29 /* HomeVC.swift in Sources */,
-				50B5EE492848C8BB0094CC69 /* ViewReadBooksVC.swift in Sources */,
-				50B5EE472848C8930094CC69 /* ViewAllVC.swift in Sources */,
+				50E017C8289063CE0044AEFF /* NicknamePopUpVC.swift in Sources */,
+				50019D0C2850B94600DBB890 /* UnreadBookCell.swift in Sources */,
+				5028D2D528631577005A76A4 /* ReadingBookCell.swift in Sources */,
+				5028D2D328630926005A76A4 /* BookModel.swift in Sources */,
 				501F8BAE2844601800870C29 /* AppDelegate.swift in Sources */,
+				50E017CC28906CD30044AEFF /* LogoutPopUpVC.swift in Sources */,
+				509D2855287EDEC800FB6B2F /* LibraryBaseCell.swift in Sources */,
 				50221B5A284749D300C4D438 /* ListCollectionVC.swift in Sources */,
+				509D2853287ED70C00FB6B2F /* ApiConst.swift in Sources */,
 				501F8BC6284461E000870C29 /* CharacterVC.swift in Sources */,
 				501F8BB02844601800870C29 /* SceneDelegate.swift in Sources */,
+				5028D2DC28632582005A76A4 /* NetManager.swift in Sources */,
+				5030F555289A430700F1899D /* DevIntroductionVC.swift in Sources */,
+				50E017C22890483F0044AEFF /* ProfileEditVC.swift in Sources */,
+				5030F551289A3E8E00F1899D /* LookNotionVC.swift in Sources */,
+				5030F5492899FEBB00F1899D /* FontTableCell.swift in Sources */,
+				5030F54D289A2A3500F1899D /* ReadingRecordPopUpVC.swift in Sources */,
+				50E017D02890C52B0044AEFF /* ColorTableCell.swift in Sources */,
+				50E017C628905E030044AEFF /* ProfileImgPopUpVC.swift in Sources */,
 				501F8BC7284461E000870C29 /* LibraryVC.swift in Sources */,
+				5030F54F289A325100F1899D /* ReadingRecordCell.swift in Sources */,
+				5028D2D728631F51005A76A4 /* ProfileCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +492,7 @@
 		};
 		501F8BBF2844601800870C29 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14D248F4105B092C91604013 /* Pods-Bookjeok.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -356,6 +521,7 @@
 		};
 		501F8BC02844601800870C29 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB8CEA0005D80E01EDD14119 /* Pods-Bookjeok.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

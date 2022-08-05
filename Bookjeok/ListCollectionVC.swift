@@ -7,22 +7,50 @@
 
 import Foundation
 import UIKit
+import Alamofire
+
 class ListCollectinVC: UIViewController{
     @IBOutlet weak var listCollectioView: UICollectionView!
-    var list = ["1","2", "3","4","5","6","7","8","9","10"]
+    var bookData = [ModelBookInfo]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         listCollectioView.delegate = self
         listCollectioView.dataSource = self
+        
+        getReadBook()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
+    
+    func reloadData() {
         listCollectioView.reloadData()
     }
     
+    func getReadBook() {
+        AF.request(URL_SEARCH_BOOKREAD, method: .get, parameters: nil, headers: nil).responseDecodable(of: ModelSearchBook.self){ response in
+            switch response.result {
+            case .success(let response):
+                self.bookData = response.data
+                self.reloadData()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
 
 extension ListCollectinVC: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return list.count
+        return bookData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -33,8 +61,13 @@ extension ListCollectinVC: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let cell = cell as? ListCollectionCell
-        let data = list[indexPath.row]
-        cell?.lblName.text = data
+        let data = bookData[indexPath.row]
+        if let imgUrl = URL(string: data.thumb),
+           let imgData = try? Data(contentsOf: imgUrl) {
+            cell?.imgViewBook.image = UIImage(data: imgData)
+        }
+        cell?.lblName.text = data.title
+        cell?.lblAuthor.text = data.writer
     }
 }
 
@@ -47,7 +80,8 @@ extension ListCollectinVC: UICollectionViewDelegateFlowLayout{
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width / 3 - 1
-        let size = CGSize(width: width, height: width)
+        let height = collectionView.frame.height / 3 - 1
+        let size = CGSize(width: width, height: height)
         return size
     }
     

@@ -7,6 +7,9 @@
 
 import UIKit
 
+import Alamofire
+
+
 class HomeVC: UIViewController {
     @IBOutlet weak var btnCapture: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -23,7 +26,25 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func clickBtnCapture(_ sender: Any) {
-        
+//        let searchUrl = try? URLRequest(url: URL_SEARCH_BOOKALL, method: .get, headers: nil)
+
+//        AF.request(searchUrl as! URLRequestConvertible).response { result in
+//            if let response = result.response,
+//               let data = result.data {
+//                print(response.statusCode)
+//                print(response.headers)
+////
+//////                      if let jsonData = json["data"] as? Array<Any>,
+//////                         let jsonBook = jsonData[0] as? Dictionary<String, Any>,
+//////                         let title = jsonBook["title"] as? String {
+//////                        print(title)
+////                      }
+//                let decoder = JSONDecoder()
+//                if let searchBook = try? decoder.decode(ModelSearchBook.self, from: data) as? ModelSearchBook {
+//                    print(searchBook.data[0].title) // hyeon
+//                }
+//            }
+//        }
     }
     
     @IBAction func clickBtnSee(_ sender: Any) {
