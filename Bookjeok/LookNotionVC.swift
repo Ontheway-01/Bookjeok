@@ -13,7 +13,7 @@ class LookNotionVC: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let notionURL = URL(string: "https://www.notion.so/Swift-af7693b82a324927bb248f2ff5e4fae8")
+        let notionURL = URL(string: "https://level-map-a4f.notion.site/STUDY-3b22932bb9364494805e9329a0cca7ec")
         let request = URLRequest(url: notionURL!)
         self.webView.load(request)
     }

@@ -22,7 +22,11 @@ class CharacterVC:UIViewController{
     @IBOutlet weak var btnLevelUp: UIButton!
     
     @IBOutlet weak var charCollectionView: UICollectionView!
-    var data: [String] = []
+    
+    @IBOutlet weak var levelLockedView: UIView!
+    
+    let levelTitle = ["1단계(1 ~ 30cm)","2단계(31 ~ 60cm)","3단계(61 ~ 100cm)","4단계(101 ~ 150cm)","5단계(151 ~ 200cm)","6단계(201 ~ 300cm)"]
+    var data: [[String]] = []
     let data1 = ["1ch1","1ch2","1ch3","1ch4","1ch5","1ch6","1ch7","1ch8"]
     let data2 = ["2ch1","2ch2","2ch3","2ch4","2ch5","2ch6","2ch7","2ch8"]
     var num: Int = 0
@@ -30,12 +34,17 @@ class CharacterVC:UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        data = data1
+        data.append(data1)
+        data.append(data2)
         
+        levelLockedView.layer.cornerRadius = 10
+        levelLockedView.isHidden = true
         lblLevel.layer.cornerRadius = 10
         lblLevel.layer.masksToBounds = true
+        lblLevel.text = levelTitle[num]
         charCollectionView.delegate = self
         charCollectionView.dataSource = self
+        
         
         
     }
@@ -57,24 +66,39 @@ class CharacterVC:UIViewController{
     }
     
     @IBAction func clickBtnLevelDown(_ sender: UIButton){
-        num = num - 1
-        if(num<0){
-            num = num + 1
-        }else{
-            data = data1
+        if(num>2){
+            num=num-1
+            lblLevel.text = levelTitle[num]
+            charCollectionView.isHidden = true
+            levelLockedView.isHidden = false
+        }else if(num <= 2 && num > 0){
+            num=num-1
+            lblLevel.text = levelTitle[num]
+            charCollectionView.isHidden = false
+            levelLockedView.isHidden = true
+            charCollectionView.reloadData()
         }
-        charCollectionView.reloadData()
+        
     }
     
     @IBAction func clickBtnLevelUp(_ sender: UIButton){
-        num = num + 1
-        if(num<0){
-            num = num - 1
-        }else{
-            data = data2
+        if(num<5 && num>0){
+            num=num+1
+            lblLevel.text = levelTitle[num]
+            charCollectionView.isHidden = true
+            levelLockedView.isHidden = false
+        }else if(num==0){
+            num=num+1
+            lblLevel.text = levelTitle[num]
+            charCollectionView.isHidden = false
+            levelLockedView.isHidden = true
+            charCollectionView.reloadData()
         }
-        charCollectionView.reloadData()
     }
+    
+    @IBAction func clickBtnBookStore(_ sender: Any) {
+    }
+    
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
@@ -91,7 +115,7 @@ extension CharacterVC: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let cell = cell as? CharacterCell
-        let data = data[indexPath.row]
+        let data = data[num][indexPath.row]
         cell?.lblCharName.text = data
         let charImage = UIImage(named: data)
         cell?.imgChar.image = charImage

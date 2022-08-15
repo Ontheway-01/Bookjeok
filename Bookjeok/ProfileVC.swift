@@ -7,8 +7,68 @@
 
 import Foundation
 import UIKit
-class ProfileVC:UIViewController{
+
+
+enum ProfileMenuType {
+    case ProfileEdit
+    case ExportData
+    case SetColorFont
+    case LogOut
+    case SendFeedback
+    case AppGradeReview
+    case LookNotion
+    case SeeInsta
+    case DevIntro
     
+    var iconImage: UIImage {
+        switch self {
+        case .ProfileEdit:
+            return UIImage(systemName: "person.fill")!
+        case .ExportData:
+            return UIImage(systemName: "doc.text.fill")!
+        case .SetColorFont:
+            return UIImage(systemName: "paintpalette.fill")!
+        case .LogOut:
+            return UIImage(systemName: "rectangle.portrait.and.arrow.right.fill")!
+        case .SendFeedback:
+            return UIImage(systemName: "bubble.left.fill")!
+        case .AppGradeReview:
+            return UIImage(systemName: "hand.thumbsup.fill")!
+        case .LookNotion:
+            return UIImage(systemName: "cup.and.saucer.fill")!
+        case .SeeInsta:
+            return UIImage(systemName: "camera.metering.partial")!
+        case .DevIntro:
+            return UIImage(systemName: "smiley.fill")!
+            
+        }
+    }
+    
+    var titleText: String {
+        switch self {
+        case .ProfileEdit:
+            return "프로필 수정"
+        case .ExportData:
+            return "독서기록 내보내기"
+        case .SetColorFont:
+            return "컬러 폰트 설정"
+        case .LogOut:
+            return "로그아웃"
+        case .SendFeedback:
+            return "피드백 보내기"
+        case .AppGradeReview:
+            return "앱 평점주기 / 리뷰"
+        case .LookNotion:
+            return "노션 구경가기"
+        case .SeeInsta:
+            return "북적이 인스타그램"
+        case .DevIntro:
+            return "개발자 소개"
+        }
+    }
+}
+
+class ProfileVC:UIViewController{    
     @IBOutlet weak var profileImgView: UIImageView!
     @IBOutlet weak var lblNickname: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -24,15 +84,16 @@ class ProfileVC:UIViewController{
         profileMenuData.append([ProfileModel]())
         profileMenuData.append([ProfileModel]())
         
-        profileMenuData[0].append(ProfileModel.init(img: UIImage(systemName: "person.fill")!, profileMenuTitle: "프로필 수정"))
-        profileMenuData[0].append(ProfileModel.init(img: UIImage(systemName: "doc.text.fill")!, profileMenuTitle: "독서기록 내보내기"))
-        profileMenuData[0].append(ProfileModel.init(img: UIImage(systemName: "paintpalette.fill")!, profileMenuTitle: "컬러 폰트 설정"))
-        profileMenuData[0].append(ProfileModel.init(img: UIImage(systemName: "rectangle.portrait.and.arrow.right.fill")!, profileMenuTitle: "로그아웃"))
-        profileMenuData[1].append(ProfileModel.init(img: UIImage(systemName: "bubble.left.fill")!, profileMenuTitle: "피드백 보내기"))
-        profileMenuData[1].append(ProfileModel.init(img: UIImage(systemName: "hand.thumbsup.fill")!, profileMenuTitle: "앱 평점주기 / 리뷰"))
-        profileMenuData[2].append(ProfileModel.init(img: UIImage(systemName: "cup.and.saucer.fill")! , profileMenuTitle: "노션 구경가기"))
-        profileMenuData[2].append(ProfileModel.init(img: UIImage(systemName: "camera.metering.partial")! , profileMenuTitle: "북적이 인스타그램"))
-        profileMenuData[2].append(ProfileModel.init(img: UIImage(systemName: "smiley.fill")!, profileMenuTitle: "개발자 소개"))
+        
+        profileMenuData[0].append(ProfileModel.init(menuType: .ProfileEdit))
+        profileMenuData[0].append(ProfileModel.init(menuType: .ExportData))
+        profileMenuData[0].append(ProfileModel.init(menuType: .SetColorFont))
+        profileMenuData[0].append(ProfileModel.init(menuType: .LogOut))
+        profileMenuData[1].append(ProfileModel.init(menuType: .SendFeedback))
+        profileMenuData[1].append(ProfileModel.init(menuType: .AppGradeReview))
+        profileMenuData[2].append(ProfileModel.init(menuType: .LookNotion))
+        profileMenuData[2].append(ProfileModel.init(menuType: .SeeInsta))
+        profileMenuData[2].append(ProfileModel.init(menuType: .DevIntro))
         profileImgView.layer.cornerRadius = profileImgView.frame.height/2
         profileImgView.layer.borderWidth = 1.0
         profileImgView.layer.borderColor = CGColor.init(red: 0, green: 0, blue: 0, alpha: 0)
@@ -48,46 +109,79 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource{
         tableView.deselectRow(at: indexPath, animated: true)
         let data = profileMenuData[indexPath.section][indexPath.row]
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        switch data.profileMenuTitle {
-        case "프로필 수정":
+        switch data.type{
+        case .ProfileEdit:
             let profileEditVC = storyboard.instantiateViewController(withIdentifier: "ProfileEditVC") as? ProfileEditVC
             present(profileEditVC!, animated: true, completion: nil)
+            
+        case .ExportData:
+            let readingRecordPopUpVC = storyboard.instantiateViewController(withIdentifier: "ReadingRecordPopUpVC") as? ReadingRecordPopUpVC
+            present(readingRecordPopUpVC!, animated: true, completion: nil)
         
-        case "컬러 폰트 설정":
+        case .SetColorFont:
             let colorFontSetVC = storyboard.instantiateViewController(withIdentifier: "ColorFontSetVC") as? ColorFontSetVC
             present(colorFontSetVC!, animated: true, completion: nil)
         
-        case "독서기록 내보내기":
-            let readingRecordPopUpVC = storyboard.instantiateViewController(withIdentifier: "ReadingRecordPopUpVC") as? ReadingRecordPopUpVC
-            present(readingRecordPopUpVC!, animated: true, completion: nil)
-            
-        case "로그아웃":
+        case .LogOut:
             let logoutPopUpVC = storyboard.instantiateViewController(withIdentifier: "LogoutPopUpVC") as? LogoutPopUpVC
-            present(logoutPopUpVC!, animated: true, completion: nil)
+            logoutPopUpVC?.modalPresentationStyle = .overCurrentContext
+            present(logoutPopUpVC!, animated: false, completion: nil)
+//        case .SendFeedback:
+//
+//        case .AppGradeReview:
+            
         
-        case "피드백 보내기":
-            let profileEditVC = storyboard.instantiateViewController(withIdentifier: "ProfileEditVC") as? ProfileEditVC
-            present(profileEditVC!, animated: true, completion: nil)
-            
-        case "앱 평점주기 / 리뷰":
-            let profileEditVC = storyboard.instantiateViewController(withIdentifier: "ProfileEditVC") as? ProfileEditVC
-            present(profileEditVC!, animated: true, completion: nil)
-            
-        case "노션 구경가기":
+        case .LookNotion:
             let lookNotionVC = storyboard.instantiateViewController(withIdentifier: "LookNotionVC") as? LookNotionVC
             present(lookNotionVC!, animated: true, completion: nil)
-            
-        case "북적이 인스타그램":
-            let profileEditVC = storyboard.instantiateViewController(withIdentifier: "ProfileEditVC") as? ProfileEditVC
-            present(profileEditVC!, animated: true, completion: nil)
-            
-        case "개발자 소개":
+        
+        case .SeeInsta:
+            let instagram = "https://www.instagram.com/eunhwa813"
+            let instagramURL = NSURL(string: instagram)
+            if(UIApplication.shared.canOpenURL(instagramURL! as URL)){
+                UIApplication.shared.open(instagramURL! as URL)
+            }else{
+                print("No instagram installed")
+            }
+        
+        case .DevIntro:
             let devIntroductionVC = storyboard.instantiateViewController(withIdentifier: "DevIntroductionVC") as? DevIntroductionVC
             present(devIntroductionVC!, animated: true, completion: nil)
             
         default:
             return
         }
+//        switch data.profileMenuTitle {
+//        case "프로필 수정":
+//            let profileEditVC = storyboard.instantiateViewController(withIdentifier: "ProfileEditVC") as? ProfileEditVC
+//            present(profileEditVC!, animated: true, completion: nil)
+//
+//        case "컬러 폰트 설정":
+//
+//
+//        case "독서기록 내보내기":
+//
+//
+//        case "로그아웃":
+////            let instagram =  "itms-apps://itunes.apple.com/app/apple-store/id1488570532?mt=8"
+//////            let instagram = "mailto:?to=[recipient]&subject=[subject]&body=[message]"
+////            let instagramURL = NSURL(string: instagram)
+////            if(UIApplication.shared.canOpenURL(instagramURL! as URL)){
+//                UIApplication.shared.open(instagramURL! as URL)
+//            }else{
+//                print("No instagram installed")
+//            }
+//            return
+            
+        
+//        case "피드백 보내기":
+//            let profileEditVC = storyboard.instantiateViewController(withIdentifier: "ProfileEditVC") as? ProfileEditVC
+//            present(profileEditVC!, animated: true, completion: nil)
+//
+//        case "앱 평점주기 / 리뷰":
+//            let profileEditVC = storyboard.instantiateViewController(withIdentifier: "ProfileEditVC") as? ProfileEditVC
+//            present(profileEditVC!, animated: true, completion: nil)
+         
         
     }
     

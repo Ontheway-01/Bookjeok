@@ -7,7 +7,8 @@
 
 import Foundation
 
-let SERVER_HOST = "172.20.10.2:8080"
+//let SERVER_HOST = "127.0.0.1:8080"
+let SERVER_HOST = "172.30.93.208"
 
 let API_ADDR = "http://\(SERVER_HOST)"
 

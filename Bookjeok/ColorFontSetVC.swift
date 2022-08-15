@@ -29,6 +29,11 @@ class FontOption{
 }
 
 class ColorFontSetVC:UIViewController{
+    enum ColorFontState {
+        case Color
+        case Font
+    }
+    
     @IBOutlet weak var colorView1: UIView!
     @IBOutlet weak var colorView2: UIView!
     @IBOutlet weak var colorView3: UIView!
@@ -43,11 +48,9 @@ class ColorFontSetVC:UIViewController{
     var colorData = [ColorOption]()
     var fontData = [FontOption]()
     var colorTheme : String = "Coral"
-    let stateList : [String] = ["color","font"]
-    var state: String = ""
+    var state: ColorFontState = .Color
     
     override func viewDidLoad() {
-        state = stateList[0]
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
@@ -62,18 +65,18 @@ class ColorFontSetVC:UIViewController{
     }
     
     @IBAction func btnColor(_ sender: Any) {
-        state = stateList[0]
+        state = .Color
         tableView.reloadData()
     }
     
     @IBAction func btnFont(_ sender: Any) {
-        state = stateList[1]
+        state = .Font
         tableView.reloadData()
     }
     
     func initOptionDatas(){
-        for element in colorList{
-            colorData.append(ColorOption(colorName: element.key, colorCode: element.value))
+        for key in colorList.keys.sorted() {
+            colorData.append(ColorOption(colorName: key, colorCode: colorList[key] ?? .black))
             
         }
         for element in fontList{
@@ -101,7 +104,7 @@ class ColorFontSetVC:UIViewController{
 extension ColorFontSetVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if state == stateList[0]{
+        if state == .Color {
             let data = colorData[indexPath.row]
             setViewColor(colorCode: data.colorCode)
             colorTheme = data.colorName
@@ -111,7 +114,7 @@ extension ColorFontSetVC: UITableViewDelegate,UITableViewDataSource{
             data.isSelected = true
             btnSet.layer.backgroundColor = colorList[colorTheme]!.cgColor
             tableView.reloadData()
-        } else if state == stateList[1]{
+        } else if state == .Font {
             let data = fontData[indexPath.row]
             setFontLabel(fontCode: data.fontCode)
             for fontOption in fontData {
@@ -123,17 +126,23 @@ extension ColorFontSetVC: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return colorList.count
+        if state == .Color {
+            return colorList.count
+        }else if state == .Font {
+            return fontData.count
+        }
+        return 0
+        
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if state == stateList[0]{
+        if state == .Color {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ColorTableCell", for: indexPath) as? ColorTableCell
             return cell!
-        }else if state == stateList[1]{
+        }else if state == .Font {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FontTableCell", for: indexPath) as? FontTableCell
             return cell!
         }
@@ -141,13 +150,13 @@ extension ColorFontSetVC: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if state == stateList[0]{
+        if state == .Color {
             let color = colorData[indexPath.row]
             (cell as? ColorTableCell)?.setView(colorName: color.colorName, colorCode: color.colorCode,isSelected: color.isSelected)
-        }else if state == stateList[1]{
+        }else if state == .Font {
             let font = fontData[indexPath.row]
-            (cell as? FontTableCell)?.setView(colorCode: colorList[colorTheme]!, isSelected: true)
-            setFontLabel(fontCode: font.fontCode)
+            (cell as? FontTableCell)?.setCell(fontOption: font,colorCode: colorList[colorTheme]!)
+           
         }
     }
 }

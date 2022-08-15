@@ -13,10 +13,10 @@ class LogoutPopUpVC:UIViewController{
     }
     
     @IBAction func btnBackGround(_ sender: Any) {
-        dismiss(animated: true)
+        dismiss(animated: false)
     }
     @IBAction func btnCancel(_ sender: UIButton) {
-        dismiss(animated: true)
+        dismiss(animated: false)
     }
     
 }

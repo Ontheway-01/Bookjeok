@@ -7,16 +7,22 @@
 
 import Foundation
 import UIKit
+
+
 class FontTableCell: UITableViewCell{
     @IBOutlet weak var lblFontName: UILabel!
     @IBOutlet weak var outerCheck: UIView!
     @IBOutlet weak var innerCheck: UIView!
     
-    func setView(colorCode:UIColor, isSelected:Bool){
+    
+    func setCell(fontOption: FontOption, colorCode: UIColor){
+        lblFontName.text = fontOption.fontName
+        lblFontName.font = fontOption.fontCode
         outerCheck.layer.cornerRadius = outerCheck.frame.height/2
         outerCheck.layer.borderWidth = 3
         innerCheck.layer.cornerRadius = innerCheck.frame.height/2
-        if isSelected {
+        
+        if fontOption.isSelected {
             outerCheck.layer.borderColor = colorCode.cgColor
             innerCheck.layer.backgroundColor = colorCode.cgColor
         } else{

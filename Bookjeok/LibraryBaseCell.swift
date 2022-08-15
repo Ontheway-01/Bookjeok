@@ -14,6 +14,7 @@ class LibraryBaseCell: UITableViewCell {
     
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var imgView: UIImageView!
+    var imageRequest: DownloadRequest?
     
     func setData(_ data: ModelBookInfo) {
         imgView.image = nil
@@ -39,12 +40,19 @@ class LibraryBaseCell: UITableViewCell {
             return
         }
         
-        AF.download(imgUrl).response { response in
+        cancelDownloadImage()
+        
+        imageRequest = AF.download(imgUrl)
+        imageRequest?.response { response in
             if let imageUrl = response.fileURL?.path {
                 self.imgView.image = UIImage(contentsOfFile: imageUrl)
             }
-            
         }
+    }
+    
+    func cancelDownloadImage() {
+        imageRequest?.cancel()
+        self.imageRequest = nil
     }
     
 }

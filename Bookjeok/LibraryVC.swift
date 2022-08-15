@@ -169,6 +169,10 @@ extension LibraryVC: UITableViewDelegate, UITableViewDataSource {
 //
 //        }
     }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        (cell as? LibraryBaseCell)?.cancelDownloadImage()
+    }
 }
 
 
