@@ -53,16 +53,17 @@ extension ProfileEditVC: UITableViewDelegate, UITableViewDataSource{
             switch indexPath.row{
             case 0:
                 let profileImgPopUpVC = storyboard.instantiateViewController(withIdentifier: "ProfileImgPopUpVC") as? ProfileImgPopUpVC
-                present(profileImgPopUpVC!, animated: true, completion: nil)
+                profileImgPopUpVC?.modalPresentationStyle = .overCurrentContext
+                present(profileImgPopUpVC!, animated: false, completion: nil)
             case 1:
                 let nicknamePopUpVC = storyboard.instantiateViewController(withIdentifier: "NicknamePopUpVC") as? NicknamePopUpVC
                 nicknamePopUpVC?.nicknameDelegate = self
-                present(nicknamePopUpVC!, animated: true, completion: nil)
+                nicknamePopUpVC?.modalPresentationStyle = .overCurrentContext
+                present(nicknamePopUpVC!, animated: false, completion: nil)
             case 2:
                 let deleteAccountPopUpVC = storyboard.instantiateViewController(withIdentifier: "DeleteAccountPopUpVC") as? DeleteAccountPopUpVC
-                present(deleteAccountPopUpVC!, animated: true, completion: nil)
-                
-                
+                deleteAccountPopUpVC?.modalPresentationStyle = .overCurrentContext
+                present(deleteAccountPopUpVC!, animated: false, completion: nil)
             default:
                 return
             }

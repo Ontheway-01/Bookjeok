@@ -19,10 +19,4 @@ struct ProfileModel{
         self.profileMenuTitle = menuType.titleText
     }
     
-    init(img: UIImage, profileMenuTitle: String){
-        type = .ExportData
-        
-        self.img = img
-        self.profileMenuTitle = profileMenuTitle
-    }
 }

@@ -12,7 +12,7 @@ class ReadingRecordCell: UITableViewCell{
     @IBOutlet weak var outerCheck: UIView!
     @IBOutlet weak var innerCheck: UIView!
     
-    func setView(cellTitle: String, isSelected: Bool){
+    func setView(cellTitle: String, isSelected: Bool, color: UIColor){
         lblOption.text = cellTitle
         outerCheck.layer.cornerRadius = outerCheck.frame.height/2
         
@@ -20,8 +20,9 @@ class ReadingRecordCell: UITableViewCell{
         innerCheck.layer.cornerRadius = innerCheck.frame.height/2
         
         if isSelected{
-            outerCheck.layer.borderColor = UIColor.systemPink.cgColor
-            innerCheck.layer.backgroundColor = UIColor.systemPink.cgColor
+            outerCheck.layer.backgroundColor = UIColor.white.cgColor
+            outerCheck.layer.borderColor = color.cgColor
+            innerCheck.layer.backgroundColor = color.cgColor
         }else{
             outerCheck.layer.backgroundColor = UIColor.white.cgColor
             outerCheck.layer.borderColor = UIColor.lightGray.cgColor

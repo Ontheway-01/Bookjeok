@@ -120,6 +120,12 @@ extension CharacterVC: UICollectionViewDelegate, UICollectionViewDataSource{
         let charImage = UIImage(named: data)
         cell?.imgChar.image = charImage
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let bookDetailVC = storyboard.instantiateViewController(withIdentifier: "BookDetailVC") as? BookDetailVC
+        present(bookDetailVC!, animated: true, completion: nil)
+    }
 }
 
 extension CharacterVC: UICollectionViewDelegateFlowLayout {

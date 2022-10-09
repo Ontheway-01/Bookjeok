@@ -6,6 +6,8 @@
 	<array/>
 	<key>item0</key>
 	<string>instagram</string>
+	<key>item1</key>
+	<string>app store</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

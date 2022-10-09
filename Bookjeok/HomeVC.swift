@@ -18,11 +18,18 @@ class HomeVC: UIViewController {
     @IBOutlet weak var listView: UIView!
     @IBOutlet weak var stackView: UIView!
     
+    var bookDatas: [ModelBookInfo]?
     var bookNum: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+//        getBookData()
     }
     
     @IBAction func clickBtnCapture(_ sender: Any) {
@@ -60,6 +67,35 @@ class HomeVC: UIViewController {
             listView.alpha = 1.0
         }
     }
+    
+//    func getBookData() {
+//        AF.request(URL_SEARCH_BOOKREAD, method: .get, parameters: nil, headers: nil).responseDecodable(of: ModelSearchBook.self){ response in
+//
+//            switch response.result {
+//            case .success(let response):
+//                self.bookDatas = response.data
+//
+//                self.adjustTableViewTop()
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//    }
+//
+//    func adjustTableViewTop() {
+//
+//        guard let bookDatas = self.bookDatas else { return }
+//        var res: CGFloat = 0.0
+//        for bookInfo in bookDatas {
+//            res = res + getCellHeight(bookData: bookInfo)
+//        }
+//        stackView.translatesAutoresizingMaskIntoConstraints = false
+//        stackView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: res).isActive = true
+//    }
+//
+//    func getCellHeight(bookData: ModelBookInfo) -> CGFloat {
+//        return floor(CGFloat(bookData.page / 10))
+//    }
 }
 
 extension HomeVC: UISearchBarDelegate{

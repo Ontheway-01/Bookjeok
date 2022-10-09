@@ -29,3 +29,22 @@ struct ModelBookInfo: Codable {
     let expectation: Int?
     
 }
+
+struct ModelBookDetailData: Codable{
+    let resCode: Int
+    let resMsg: String
+    let data: ModelBookDetail
+}
+struct ModelBookDetail: Codable{
+    let title: String
+    let writer: String
+    let company: String
+    let thumb: String
+    let page: Int
+    let start: String
+    let end: String
+    let rate: Int
+    let ISBN: String
+    let intro: String
+
+}

@@ -128,7 +128,11 @@ extension LibraryVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let bookDetailVC = storyboard.instantiateViewController(withIdentifier: "BookDetailVC") as? BookDetailVC
+        present(bookDetailVC!, animated: true, completion: nil)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

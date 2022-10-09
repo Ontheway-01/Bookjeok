@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 enum ProfileMenuType {
     case ProfileEdit
     case ExportData
@@ -68,15 +67,31 @@ enum ProfileMenuType {
     }
 }
 
-class ProfileVC:UIViewController{    
+class ProfileVC: UIViewController{
     @IBOutlet weak var profileImgView: UIImageView!
     @IBOutlet weak var lblNickname: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    var colorTheme: UIColor = .systemPink
+    var fontTheme: UIFont = .systemFont(ofSize: 17.0)
     let profileSectionHeader = ["쓰담쓰담 한마디", "북적이와 소통하기"]
     var profileMenuData = [[ProfileModel]]()
+    
+    @objc func onChangedColorFont(_ sender: Notification) {
+        let userDefault = UserDefaults.standard
+        let colorName = (userDefault.object(forKey: "AppColor") as? String) ?? "Coral"
+        colorTheme = colorList[colorName] ?? .systemPink
+        let fontName = (userDefault.object(forKey: "AppFont") as? String) ?? "Arial"
+        fontTheme = UIFont(name: fontName, size: 17.0) ?? .systemFont(ofSize: 17.0)
+        
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(onChangedColorFont(_:)), name: .ColorFontChanged, object: nil)
+        
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -99,10 +114,56 @@ class ProfileVC:UIViewController{
         profileImgView.layer.borderColor = CGColor.init(red: 0, green: 0, blue: 0, alpha: 0)
         profileImgView.clipsToBounds = true
         
-        tableView.reloadData()
+//        tableView.reloadData()
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 }
+
+//extension ProfileVC: ColorFontSetDelegate{
+//    func onChangeFont(font: UIFont) {
+//        let userDefault = UserDefaults.standard
+//        userDefault.set(font.fontName, forKey: "AppFont")
+//        userDefault.synchronize()
+//
+//        fontTheme = font
+//        tableView.reloadData()
+//    }
+//
+//    func onChangeColor(color: UIColor) {
+//        var colorKey: String? = nil
+//        for key in colorList.keys {
+//            if colorList[key] == color {
+//                colorKey = key
+//            }
+//        }
+//
+//        let userDefault = UserDefaults.standard
+//        userDefault.set(colorKey!, forKey: "AppColor")
+//        userDefault.synchronize()
+//
+//        colorTheme = color
+//        tableView.reloadData()
+//    }
+//}
+//
+//extension ProfileVC: LogoutDelegate{
+//    func color() -> UIColor?{
+//        return colorTheme
+//    }
+//}
+
+//extension ProfileVC: DevIntroDelegate{
+//    func color() -> UIColor? {
+//        return colorTheme
+//    }
+//    func font() -> UIFont? {
+//        return fontTheme
+//    }
+//}
+
 
 extension ProfileVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -116,20 +177,29 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource{
             
         case .ExportData:
             let readingRecordPopUpVC = storyboard.instantiateViewController(withIdentifier: "ReadingRecordPopUpVC") as? ReadingRecordPopUpVC
-            present(readingRecordPopUpVC!, animated: true, completion: nil)
+            readingRecordPopUpVC?.modalPresentationStyle = .overCurrentContext
+            present(readingRecordPopUpVC!, animated: false, completion: nil)
         
         case .SetColorFont:
             let colorFontSetVC = storyboard.instantiateViewController(withIdentifier: "ColorFontSetVC") as? ColorFontSetVC
+//            colorFontSetVC?.colorFontSetDelegate = self
             present(colorFontSetVC!, animated: true, completion: nil)
         
         case .LogOut:
             let logoutPopUpVC = storyboard.instantiateViewController(withIdentifier: "LogoutPopUpVC") as? LogoutPopUpVC
+//            logoutPopUpVC?.LogoutDelegate = self
             logoutPopUpVC?.modalPresentationStyle = .overCurrentContext
             present(logoutPopUpVC!, animated: false, completion: nil)
 //        case .SendFeedback:
 //
-//        case .AppGradeReview:
-            
+        case .AppGradeReview:
+            let appstore = "itms-apps://itunes.apple.com/app/id1472538417"
+            let appstoreURL = NSURL(string: appstore)
+            if(UIApplication.shared.canOpenURL(appstoreURL! as URL)){
+                UIApplication.shared.open(appstoreURL! as URL)
+            }else{
+                print("No app store installed")
+            }
         
         case .LookNotion:
             let lookNotionVC = storyboard.instantiateViewController(withIdentifier: "LookNotionVC") as? LookNotionVC
@@ -146,6 +216,7 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource{
         
         case .DevIntro:
             let devIntroductionVC = storyboard.instantiateViewController(withIdentifier: "DevIntroductionVC") as? DevIntroductionVC
+//            devIntroductionVC?.devIntroDelegate = self
             present(devIntroductionVC!, animated: true, completion: nil)
             
         default:
@@ -214,6 +285,10 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource{
         let profileData = profileMenuData[indexPath.section][indexPath.row]
         let cell = cell as? ProfileCell
         cell?.imgView.image = profileData.img
+        cell?.imgView.tintColor = colorTheme
         cell?.lbltiltle.text = profileData.profileMenuTitle
+        cell?.lbltiltle.font = fontTheme
     }
 }
+
+

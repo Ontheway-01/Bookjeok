@@ -8,6 +8,11 @@
 import Foundation
 import UIKit
 
+//protocol ColorFontSetDelegate{
+//    func onChangeColor(color: UIColor)
+//    func onChangeFont(font: UIFont)
+//}
+
 class ColorOption{
     var colorName: String
     var colorCode: UIColor
@@ -28,12 +33,19 @@ class FontOption{
     }
 }
 
+extension Notification.Name {
+    public static let ColorFontChanged = Notification.Name(rawValue: "ColorFontChanged")
+}
+
 class ColorFontSetVC:UIViewController{
+    
     enum ColorFontState {
         case Color
         case Font
     }
     
+//    open var colorFontSetDelegate: ColorFontSetDelegate?
+
     @IBOutlet weak var colorView1: UIView!
     @IBOutlet weak var colorView2: UIView!
     @IBOutlet weak var colorView3: UIView!
@@ -43,24 +55,45 @@ class ColorFontSetVC:UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
     
-    let colorList : [String : UIColor] = ["Coral": UIColor.systemPink,"Yellow":UIColor.yellow ,"Green":UIColor.green,"Blue":UIColor.blue,"Purple":UIColor.purple,"Gray":UIColor.gray]
-    let fontList = ["Arial", "ArialHebrew", "Avenir-Black", "AvenirNext-Bold"]
     var colorData = [ColorOption]()
     var fontData = [FontOption]()
-    var colorTheme : String = "Coral"
+    var colorTheme : String? = nil
+    var fontTheme : UIFont? = nil
     var state: ColorFontState = .Color
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        btnSet.layer.backgroundColor = colorList[colorTheme]!.cgColor
+        
+        let userDefault = UserDefaults.standard
+        colorTheme = (userDefault.object(forKey: "AppColor") as? String) ?? "Coral"
+        let font = (userDefault.object(forKey: "AppFont") as? String) ?? "Arial"
+        fontTheme = UIFont(name: font, size: 17.0)
+        
+        btnSet.layer.backgroundColor = colorList[colorTheme!]!.cgColor
         btnSet.tintColor = UIColor.white
-        setViewColor(colorCode: colorList[colorTheme]!)
+        setViewColor(colorCode: colorList[colorTheme!]!)
         initOptionDatas()
     }
     
     @IBAction func btnBack(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func btnApply(_ sender: Any) {
+        let userDefault = UserDefaults.standard
+        userDefault.set(fontTheme?.fontName, forKey: "AppFont")
+        userDefault.set(colorTheme!, forKey: "AppColor")
+        userDefault.synchronize()
+
+        
+        NotificationCenter.default.post(name: .ColorFontChanged, object: nil)
+        
+//        self.colorFontSetDelegate?.onChangeFont(font: fontTheme!)
+        //        self.colorFontSetDelegate?.onChangeColor(color: colorList[colorTheme!]!)
+        
+//        ThemeModel.init(color: colorList[colorTheme!]!, font: fontTheme!)
         dismiss(animated: true, completion: nil)
     }
     
@@ -83,6 +116,16 @@ class ColorFontSetVC:UIViewController{
             fontData.append(FontOption(fontName: element, fontCode: UIFont(name: element, size: UIFont.labelFontSize)!))
         }
     }
+    
+    func getColorTheme(colorCode: UIColor?) -> String?{
+        for key in colorList.keys {
+            if colorList[key] == colorCode{
+                return key
+            }
+        }
+        return nil
+    }
+    
     func setViewColor(colorCode: UIColor){
         colorView1.layer.cornerRadius = colorView1.frame.height/3
         colorView2.layer.cornerRadius = colorView2.frame.height/3
@@ -112,10 +155,11 @@ extension ColorFontSetVC: UITableViewDelegate,UITableViewDataSource{
                 colorOption.isSelected = false
             }
             data.isSelected = true
-            btnSet.layer.backgroundColor = colorList[colorTheme]!.cgColor
+            btnSet.layer.backgroundColor = colorList[colorTheme!]!.cgColor
             tableView.reloadData()
         } else if state == .Font {
             let data = fontData[indexPath.row]
+            fontTheme = data.fontCode
             setFontLabel(fontCode: data.fontCode)
             for fontOption in fontData {
                 fontOption.isSelected = false
@@ -155,7 +199,7 @@ extension ColorFontSetVC: UITableViewDelegate,UITableViewDataSource{
             (cell as? ColorTableCell)?.setView(colorName: color.colorName, colorCode: color.colorCode,isSelected: color.isSelected)
         }else if state == .Font {
             let font = fontData[indexPath.row]
-            (cell as? FontTableCell)?.setCell(fontOption: font,colorCode: colorList[colorTheme]!)
+            (cell as? FontTableCell)?.setCell(fontOption: font,colorCode: colorList[colorTheme!]!)
            
         }
     }

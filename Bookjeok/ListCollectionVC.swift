@@ -29,6 +29,7 @@ class ListCollectinVC: UIViewController{
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        
     }
     
     func reloadData() {
@@ -52,7 +53,7 @@ extension ListCollectinVC: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return bookData.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = listCollectioView.dequeueReusableCell(withReuseIdentifier: "ListCollectionCell", for: indexPath) as? ListCollectionCell
         
@@ -72,15 +73,18 @@ extension ListCollectinVC: UICollectionViewDelegate, UICollectionViewDataSource{
 }
 
 extension ListCollectinVC: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.zero
+    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 1
+        return 0
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 1
+        return 0
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.frame.width / 3 - 1
-        let height = collectionView.frame.height / 3 - 1
+        let width = collectionView.frame.width / 3.2
+        let height = collectionView.frame.height / 3
         let size = CGSize(width: width, height: height)
         return size
     }
